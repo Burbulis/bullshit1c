@@ -31,8 +31,6 @@ def procAndFuncDetector(lines,token_start,token_end):
             if -1 != line.find(token_start):
                 issignature = True
             if -1 != line.find(token_end):
-#                print("************************************")
-#                print("Имя: :" + _name);
                 ret[_name] = (args_list,body)
                 isbody = False
 
@@ -66,6 +64,9 @@ def ShowData(vals):
 
 lines = readfile("dumbcode.1c")
 ret = procAndFuncDetector(lines,"Функция","КонецФункции")
+print("посмотрим функции которые мы экстрагировали")
+print(ret.keys())
+
 ARG_NAMES = 0;
 BODY = 1;
 desc = ret["Фуфлограмма"]
@@ -83,6 +84,10 @@ print("**Тело функции**:")
 ShowData( desc[BODY] )
 
 ret = procAndFuncDetector(lines,"Процедура","КонецПроцедуры")
+print("посмотрим процедуры которые мы экстрагировали")
+print(ret.keys())
+
+
 desc = ret["ПриСозданииНаСервере"]
 print("**Аргументы**")
 ShowData( desc[ARG_NAMES] )
