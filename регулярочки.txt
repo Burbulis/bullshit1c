@@ -1,0 +1,9 @@
+\((.*)\)
+
+name = "key"
+listArg = [1,2,3,4]
+listBody = ["key1","key2"]
+ 
+dict = {}
+dict[ name ]= (listArg,listBody)
+print(dict[name])
